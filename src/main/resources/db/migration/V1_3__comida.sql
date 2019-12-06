@@ -1,0 +1,5 @@
+CREATE TABLE COMIDAS(
+ID integer AUTO_INCREMENT not null PRIMARY KEY,
+COMIDA varchar(100) not null,
+INATIVO BIT(1)
+);
