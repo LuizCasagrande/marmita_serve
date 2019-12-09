@@ -18,6 +18,6 @@ public class Favorito {
     private Cliente cliente;
 
     @ManyToOne
-    @JoinColumn(name = "ID", nullable = false)
+    @JoinColumn(name = "ID_COMIDA", nullable = false)
     private Comida comida;
 }

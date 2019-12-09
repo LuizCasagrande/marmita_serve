@@ -19,6 +19,6 @@ public class Alergia {
     private Cliente cliente;
 
     @OneToOne
-    @JoinColumn(name = "ID", nullable = false)
+    @JoinColumn(name = "ID_INGREDIENTE", nullable = false)
     private Ingrediente ingrediente;
 }
