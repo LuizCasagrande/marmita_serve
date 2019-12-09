@@ -15,7 +15,8 @@ public class ValidaDataParaPedido implements ApplicationListener<PedidoPreSave> 
             throw new RuntimeException("Ops! Os pedidos para hoje foram encerrados. " +
                     "Para melhor atender nossos clientes aceitamos pedidos até as 10h.");
         }
+        }
+
     }
-}
 
 

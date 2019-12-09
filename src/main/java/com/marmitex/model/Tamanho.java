@@ -13,7 +13,7 @@ public class Tamanho {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "PESO_MARMITA")
+    @Column(name = "PESO_MARMITA" , nullable = false)
     private Double peso;
 
     @Column(name = "INATIVO")

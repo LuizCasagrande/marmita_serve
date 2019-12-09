@@ -4,6 +4,7 @@ import com.marmitex.framework.CrudRestController;
 import com.marmitex.framework.CrudService;
 import com.marmitex.model.Tipo;
 import com.marmitex.service.TipoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("tipo")
 public class TipoController extends CrudRestController<Tipo, Long> {
 
-    private TipoService tipoService;
+    @Autowired  private TipoService tipoService;
 
     @Override
     public CrudService<Tipo, Long> getService() {
