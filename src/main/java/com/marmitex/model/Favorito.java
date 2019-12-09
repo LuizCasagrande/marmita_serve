@@ -6,10 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "DETESTADO")
-public class Detestada {
+@Table(name = "FAVORITO")
+public class Favorito {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 }

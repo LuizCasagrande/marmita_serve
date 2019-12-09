@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("comida")
 public class ComidaController extends CrudRestController<Comida, Long> {
 
-    private  ComidaService comidaService;
+    private final ComidaService comidaService;
 
     public ComidaController(ComidaService comidaService) {
         this.comidaService = comidaService;

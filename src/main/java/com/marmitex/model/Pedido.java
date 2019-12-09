@@ -38,4 +38,17 @@ public class Pedido {
     @JoinColumn(name = "ID_CLIENTE", nullable = false)
     private Cliente cliente;
 
+    @Column(name = "TOTAL_PEDIDO")
+    private Double totalPedido;
+
+    public Double getTotalPedido() {
+        return this.totalPedido;
+    }
+
+    public void setTotalPedido() {
+        Double total = Double.valueOf(0);
+        for (TamanhoPedido tamanhoPedido : tamanhoPedidoList) {
+            total+= tamanhoPedido.getQuantidade() * tamanhoPedido.getTamanho().getPreco();
+        }
+    }
 }

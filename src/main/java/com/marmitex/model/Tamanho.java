@@ -18,4 +18,7 @@ public class Tamanho {
 
     @Column(name = "INATIVO")
     private boolean inativo = false;
+
+    @Column(name = "PRECO")
+    private Double preco;
 }

@@ -4,5 +4,5 @@ import com.marmitex.framework.CrudService;
 import com.marmitex.model.Detestada;
 import com.marmitex.model.Ingrediente;
 
-public interface DetestadaService<Detestadada> extends CrudService<Detestadada, Long> {
+public interface DetestadaService extends CrudService<Detestada, Long> {
 }
