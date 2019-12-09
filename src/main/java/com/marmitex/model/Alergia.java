@@ -1,13 +1,14 @@
 package com.marmitex.model;
 
+import ch.qos.logback.core.net.server.Client;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "FAVORITO")
-public class Favorito {
+@Table(name = "ALERGIA")
+public class Alergia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +18,7 @@ public class Favorito {
     @JoinColumn(name = "ID_CLIENTE", nullable = false)
     private Cliente cliente;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "ID", nullable = false)
-    private Comida comida;
+    private Ingrediente ingrediente;
 }
