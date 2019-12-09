@@ -12,8 +12,8 @@
 //    private Double totalTodasAsMarmitasPendentes;
 //    private Double totalMarmitaInadimplentes;
 //    private List<String> top10ClientesMaisCompram = new ArrayList<>();
-//    private List<String> top10ClientesQueMaisCompraram;
+//    private List<String> top10ClientesQueMaisCompraram = new ArrayList<>();
 //    private List<Cliente> top10ClientesInadimplentes = new ArrayList<>();
-//    private List<Cliente> top10ClientesMaisInadimplentes;
+//    private List<Cliente> top10ClientesMaisInadimplentes = new ArrayList<>();
 //
 //}

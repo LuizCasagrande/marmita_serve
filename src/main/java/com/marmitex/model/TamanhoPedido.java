@@ -27,4 +27,7 @@ public class TamanhoPedido {
     @Column(name = "QUANTIDADE")
     private Integer quantidade;
 
+    @Column(name = "PRECO")
+    private Double preco;
+
 }
