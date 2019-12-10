@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CardapioServiceImpl extends CrudServiceImpl<Cardapio, Long> implements CardapioService {
 
@@ -17,5 +19,10 @@ public class CardapioServiceImpl extends CrudServiceImpl<Cardapio, Long> impleme
     @Override
     public JpaRepository<Cardapio, Long> getRepository() {
         return cardapioData;
+    }
+
+    @Override
+    public List<Cardapio> findByInativoFalse() {
+        return cardapioData.findByInativoFalse();
     }
 }

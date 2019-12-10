@@ -12,13 +12,13 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TamanhoServiceImpl extends CrudServiceImpl<Tamanho, Long> implements TamanhoService {
-    @Autowired
-    private ApplicationEventPublisher applicationEventPublisher;
+    @Autowired private ApplicationEventPublisher applicationEventPublisher;
 
-    @Autowired
-    private TamanhoData tamanhoData;
+    @Autowired private TamanhoData tamanhoData;
 
     @Override
     public JpaRepository<Tamanho, Long> getRepository() {
@@ -34,5 +34,10 @@ public class TamanhoServiceImpl extends CrudServiceImpl<Tamanho, Long> implement
     public Tamanho save(Tamanho entity) {
         preSave(entity);
         return getRepository().save(entity);
+    }
+
+    @Override
+    public List<Tamanho> findByInativoFalse() {
+        return tamanhoData.findByInativoFalse();
     }
 }

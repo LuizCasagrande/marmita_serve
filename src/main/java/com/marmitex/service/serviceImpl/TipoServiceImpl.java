@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TipoServiceImpl extends CrudServiceImpl<Tipo, Long> implements TipoService {
 
@@ -17,5 +19,10 @@ public class TipoServiceImpl extends CrudServiceImpl<Tipo, Long> implements Tipo
     @Override
     public JpaRepository<Tipo, Long> getRepository() {
         return tipoData;
+    }
+
+    @Override
+    public List<Tipo> findByInativoFalse() {
+        return tipoData.findByInativoFalse();
     }
 }

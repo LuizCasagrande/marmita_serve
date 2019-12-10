@@ -4,8 +4,11 @@ import com.marmitex.framework.CrudRestController;
 import com.marmitex.framework.CrudService;
 import com.marmitex.model.Ingrediente;
 import com.marmitex.service.IngredienteService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("ingrediente")
@@ -20,5 +23,10 @@ public class IngredienteController extends CrudRestController<Ingrediente, Long>
     @Override
     public CrudService<Ingrediente, Long> getService() {
         return ingredienteService;
+    }
+
+    @GetMapping("ativos")
+    public List<Ingrediente> ingredienteListAtivos(){
+        return ingredienteService.findByInativoFalse();
     }
 }

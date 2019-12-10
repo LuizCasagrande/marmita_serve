@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ComidaServiceImpl extends CrudServiceImpl<Comida, Long> implements ComidaService {
 
@@ -17,5 +19,10 @@ public class ComidaServiceImpl extends CrudServiceImpl<Comida, Long> implements 
     @Override
     public JpaRepository<Comida, Long> getRepository() {
         return comidaData;
+    }
+
+    @Override
+    public List<Comida> findByInativoFalse() {
+        return comidaData.findByInativoFalse();
     }
 }
