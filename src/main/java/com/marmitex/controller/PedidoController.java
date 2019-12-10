@@ -4,6 +4,8 @@ import com.marmitex.framework.CrudRestController;
 import com.marmitex.framework.CrudService;
 import com.marmitex.model.Pedido;
 import com.marmitex.service.PedidoService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,10 @@ public class PedidoController extends CrudRestController<Pedido, Long> {
     @Override
     public CrudService<Pedido, Long> getService() {
         return pedidoService;
+    }
+
+    @GetMapping("pago{id}")
+    public void setPago(@PathVariable("id") Integer id){
+        pedidoService.setPago(id);
     }
 }

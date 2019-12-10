@@ -41,6 +41,12 @@ public class Pedido {
     @Column(name = "TOTAL_PEDIDO")
     private Double totalPedido;
 
+    @Column(name = "STATUS")
+    private boolean status = false;
+
+    @Column(name = "PAGO")
+    private boolean pago = false;
+
     public Double getTotalPedido() {
         return this.totalPedido;
     }

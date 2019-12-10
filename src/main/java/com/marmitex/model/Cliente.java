@@ -1,12 +1,14 @@
 package com.marmitex.model;
 
-import com.marmitex.jwt.filter.UserCredentials;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
@@ -44,9 +46,20 @@ public class Cliente implements UserDetails {
     @Column(name = "BAIRRO", nullable = false, length = 100)
     private String bairro;
 
+    @PrePersist
+    public void preInsert(){
+        this.senha = new BCryptPasswordEncoder().encode(this.senha);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        if(admin){
+            authorities.add((GrantedAuthority) () -> "ADMIN");
+        }else{
+            authorities.add((GrantedAuthority) () -> "CLIENTE");
+        }
+        return authorities;
     }
 
     @Override

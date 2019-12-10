@@ -33,4 +33,9 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido, Long> implements 
     public JpaRepository<Pedido, Long> getRepository() {
         return pedidoData;
     }
+
+    @Override
+    public void setPago(Integer id) {
+        pedidoData.setPago(id);
+    }
 }
