@@ -1,9 +1,13 @@
 package com.marmitex.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.marmitex.Enum.DiaSemana;
 import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,4 +25,12 @@ public class Cardapio {
 
     @Column(name = "INATIVO")
     private boolean inativo = false;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "DIA_SEMANA")
+    private DiaSemana diaSemana;
+
+    @JsonManagedReference
+    @OneToMany
+    private List<Comida> comidaList = new ArrayList<>();
 }
