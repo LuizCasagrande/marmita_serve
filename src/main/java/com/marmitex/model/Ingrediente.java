@@ -1,11 +1,13 @@
 package com.marmitex.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "INGREDIENTES")
+@ToString(of = "id")
 public class Ingrediente {
 
     @Id

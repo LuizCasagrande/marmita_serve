@@ -1,6 +1,7 @@
 package com.marmitex.model;
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "CLIENTES")
+@ToString(of = "id")
 public class Cliente implements UserDetails {
 
     @Id

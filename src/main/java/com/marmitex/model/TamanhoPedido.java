@@ -2,12 +2,14 @@ package com.marmitex.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "PEDIDO_TAMANHO")
+@ToString(of = "id")
 public class TamanhoPedido {
 
     @Id
