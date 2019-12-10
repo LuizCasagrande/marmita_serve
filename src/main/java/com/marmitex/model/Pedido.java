@@ -38,23 +38,13 @@ public class Pedido {
     @JoinColumn(name = "ID_CLIENTE", nullable = false)
     private Cliente cliente;
 
-    @Column(name = "TOTAL_PEDIDO")
-    private Double totalPedido;
+    @OneToOne
+    @JoinColumn(name = "ID_COMIDA", nullable = false)
+    private Comida comida;
 
     @Column(name = "STATUS")
     private boolean status = false;
 
     @Column(name = "PAGO")
     private boolean pago = false;
-
-    public Double getTotalPedido() {
-        return this.totalPedido;
-    }
-
-    public void setTotalPedido() {
-        Double total = Double.valueOf(0);
-        for (TamanhoPedido tamanhoPedido : tamanhoPedidoList) {
-            total+= tamanhoPedido.getQuantidade() * tamanhoPedido.getTamanho().getPreco();
-        }
-    }
 }
