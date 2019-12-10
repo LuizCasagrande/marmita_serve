@@ -42,4 +42,9 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido, Long> implements 
     public void setPago(Integer id) {
         pedidoData.setPago(id);
     }
+
+    @Override
+    public void setCancelado(Integer id) {
+        pedidoData.setCancelado(id);
+    }
 }

@@ -13,4 +13,11 @@ public interface PedidoData extends JpaRepository<Pedido, Long> {
     @Modifying
     @Query("UPDATE Pedido SET pago = true WHERE id = :id")
     void setPago(@Param("id") Integer id);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Pedido SET status = true WHERE id = :id")
+    void setCancelado(@Param("id") Integer id);
+
+
 }

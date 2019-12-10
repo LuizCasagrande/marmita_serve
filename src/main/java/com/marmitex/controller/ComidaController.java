@@ -5,6 +5,7 @@ import com.marmitex.framework.CrudService;
 import com.marmitex.model.Comida;
 import com.marmitex.service.ComidaService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,8 @@ public class ComidaController extends CrudRestController<Comida, Long> {
     }
 
     @Override
-    public Optional<Comida> findById(Long aLong) {
+    @GetMapping("{query}")
+    public Optional<Comida> findById(@PathVariable("query") Long aLong) {
         var comida = super.findById(aLong).get();
         comida.getIngredientesList().size();
         comida.getTipoList().size();
