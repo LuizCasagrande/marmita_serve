@@ -15,7 +15,6 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired private ClienteService clienteService;
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var cliente = clienteService.findBycpf(username);

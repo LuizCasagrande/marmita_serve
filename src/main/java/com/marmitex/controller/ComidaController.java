@@ -7,6 +7,8 @@ import com.marmitex.service.ComidaService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("comida")
 public class ComidaController extends CrudRestController<Comida, Long> {
@@ -20,5 +22,13 @@ public class ComidaController extends CrudRestController<Comida, Long> {
     @Override
     public CrudService<Comida, Long> getService() {
         return comidaService;
+    }
+
+    @Override
+    public Optional<Comida> findById(Long aLong) {
+        var comida = super.findById(aLong).get();
+        comida.getIngredientesList().size();
+        comida.getTipoList().size();
+        return Optional.of(comida);
     }
 }
