@@ -1,12 +1,14 @@
 package com.marmitex.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "TIPO")
+@ToString(of = "id")
 public class Tipo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

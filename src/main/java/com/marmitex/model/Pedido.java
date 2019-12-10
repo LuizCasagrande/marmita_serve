@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.marmitex.config.LocalDateDeserializer;
 import com.marmitex.config.LocalDateSerializer;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "PEDIDO")
+@ToString(of = "id")
 public class Pedido {
 
     @Id

@@ -2,12 +2,14 @@ package com.marmitex.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 @Table(name = "COMIDA_TIPO")
+@ToString(of = "id")
 public class TipoComida {
 
     @Id
@@ -20,6 +22,6 @@ public class TipoComida {
     private Comida comida;
 
     @OneToOne(optional = false)
-    @JoinColumn(name = "ID_TIPO", referencedColumnName = "id")
+    @JoinColumn(name = "ID_TIPO")
     private Tipo tipo;
 }
