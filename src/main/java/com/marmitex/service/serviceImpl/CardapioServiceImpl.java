@@ -24,7 +24,7 @@ public class CardapioServiceImpl extends CrudServiceImpl<Cardapio, Long> impleme
 
     @Override
     public void preSave(Cardapio entity) {
-        if (entity.isInativo()){
+        if (!entity.isInativo()){
             cardapioData.updateInativoByDiaSemana(entity.getDiaSemana());
         }
     }

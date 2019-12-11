@@ -3,8 +3,6 @@ package com.marmitex.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.deser.Deserializers;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.marmitex.Enum.DiaSemana;
 import com.marmitex.config.LocalDateDeserializer;
 import com.marmitex.config.LocalDateSerializer;
@@ -13,7 +11,6 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,11 +56,13 @@ public class Pedido {
     public void preSave() {
         var dataAtual = LocalDate.now();
         if (diaSemana.getDia() < dataAtual.getDayOfWeek().getValue()) {
-            throw new RuntimeException("Não é possivel fazer um pedido para data menor que atual");
+            throw new RuntimeException("Não é possivel fazer um pedido para data anterior da atual");
         }
 
         var diferencaDias = diaSemana.getDia() - dataAtual.getDayOfWeek().getValue();
         data = dataAtual.plusDays(diferencaDias);
     }
+
+
 }
 
