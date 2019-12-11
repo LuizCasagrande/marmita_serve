@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.Deserializers;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.marmitex.Enum.DiaSemana;
 import com.marmitex.config.LocalDateDeserializer;
 import com.marmitex.config.LocalDateSerializer;
 import lombok.Data;
@@ -49,4 +50,20 @@ public class Pedido {
 
     @Column(name = "PAGO")
     private boolean pago = false;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "DIA_SEMANA")
+    private DiaSemana diaSemana;
+
+    @PrePersist
+    public void preSave() {
+        var dataAtual = LocalDate.now();
+        if (diaSemana.getDia() < dataAtual.getDayOfWeek().getValue()) {
+            throw new RuntimeException("Não é possivel fazer um pedido para data menor que atual");
+        }
+
+        var diferencaDias = diaSemana.getDia() - dataAtual.getDayOfWeek().getValue();
+        data = dataAtual.plusDays(diferencaDias);
+    }
 }
+
