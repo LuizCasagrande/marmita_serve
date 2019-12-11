@@ -2,8 +2,8 @@ package com.marmitex.Enum;
 
 public enum DiaSemana {
     SEGUNDA,
-    TERÇA,
+    TERCA,
     QUARTA,
     QUINTA,
-    SEXTA
+    SEXTA;
 }

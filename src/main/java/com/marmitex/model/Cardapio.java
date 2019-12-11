@@ -1,5 +1,6 @@
 package com.marmitex.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.marmitex.Enum.DiaSemana;
 import lombok.Data;
@@ -31,6 +32,7 @@ public class Cardapio {
     private DiaSemana diaSemana;
 
     @JsonManagedReference
-    @OneToMany
-    private List<Comida> comidaList = new ArrayList<>();
+    @OneToMany(mappedBy = "cardapio", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CardapioComida> cardapioComidaList = new ArrayList<>();
+
 }
