@@ -27,12 +27,12 @@ public class PedidoController extends CrudRestController<Pedido, Long> {
     }
 
     @GetMapping("pago/{id}")
-    public void setPago(@PathVariable("id") Integer id){
+    public void setPago(@PathVariable("id") Long id){
         pedidoService.setPago(id);
     }
 
     @GetMapping("cancelado/{id}")
-    public void setCancelado(@PathVariable("id") Integer id){
+    public void setCancelado(@PathVariable("id") Long id){
         pedidoService.setCancelado(id);
     }
 

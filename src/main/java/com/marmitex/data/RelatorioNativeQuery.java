@@ -12,4 +12,6 @@ public interface RelatorioNativeQuery extends NativeQuery {
 
     List<RelatorioPedidoCliente> relatorioPedidoCliente();
 
+    Number TotalAPagar();
+
 }

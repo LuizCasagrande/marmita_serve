@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface PedidoService extends CrudService<Pedido, Long> {
      void preSave(Pedido entity);
-     void setPago(Integer id);
-     void setCancelado(@Param("id") Integer id);
+     void setPago(Long id);
+     void setCancelado(@Param("id") Long id);
 }

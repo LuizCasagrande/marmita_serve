@@ -12,12 +12,12 @@ public interface PedidoData extends JpaRepository<Pedido, Long> {
     @Transactional
     @Modifying
     @Query("UPDATE Pedido SET pago = true WHERE id = :id")
-    void setPago(@Param("id") Integer id);
+    void setPago(@Param("id") Long id);
 
     @Transactional
     @Modifying
     @Query("UPDATE Pedido SET status = true WHERE id = :id")
-    void setCancelado(@Param("id") Integer id);
+    void setCancelado(@Param("id") Long id);
 
 
 }
