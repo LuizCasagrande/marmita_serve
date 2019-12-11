@@ -10,6 +10,8 @@ import com.marmitex.config.LocalDateDeserializer;
 import com.marmitex.config.LocalDateSerializer;
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -64,6 +66,10 @@ public class Pedido {
 
         var diferencaDias = diaSemana.getDia() - dataAtual.getDayOfWeek().getValue();
         data = dataAtual.plusDays(diferencaDias);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Cliente cliente = (Cliente) authentication.getPrincipal();
+        this.setCliente(cliente);
     }
 }
 
