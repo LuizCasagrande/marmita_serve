@@ -23,4 +23,5 @@ public class Alergia {
     @OneToOne
     @JoinColumn(name = "ID_INGREDIENTE", nullable = false)
     private Ingrediente ingrediente;
+
 }

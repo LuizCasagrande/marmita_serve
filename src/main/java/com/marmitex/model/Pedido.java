@@ -41,8 +41,8 @@ public class Pedido {
     private Cliente cliente;
 
     @OneToOne
-    @JoinColumn(name = "ID_COMIDA", nullable = false)
-    private Comida comida;
+    @JoinColumn(name = "ID", nullable = false)
+    private Cardapio cardapio;
 
     @Column(name = "STATUS")
     private boolean status = false;

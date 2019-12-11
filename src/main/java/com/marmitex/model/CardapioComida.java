@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -16,8 +18,8 @@ public class CardapioComida {
     private Long id;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Comida comida;
+    @OneToMany(mappedBy = "comida", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comida> comidaList = new ArrayList<>();
 
     @ManyToOne
     private Cardapio cardapio;
