@@ -3,6 +3,7 @@ package com.marmitex.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -28,6 +29,7 @@ public class Cliente implements UserDetails {
     @Column(name = "ADMIN", nullable = false)
     private boolean admin = false;
 
+    @CPF
     @Column(name = "CPF", nullable = false, length = 11)
     private String cpf;
 
