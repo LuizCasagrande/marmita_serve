@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("pedido")
 public class PedidoController extends CrudRestController<Pedido, Long> {
@@ -34,5 +36,9 @@ public class PedidoController extends CrudRestController<Pedido, Long> {
         pedidoService.setCancelado(id);
     }
 
-
+    @Override
+    @GetMapping("{query}")
+    public Optional<Pedido> findById(@PathVariable("query") Long aLong) {
+        return super.findById(aLong);
+    }
 }
