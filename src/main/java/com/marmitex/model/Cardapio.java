@@ -34,5 +34,4 @@ public class Cardapio {
     @JsonManagedReference
     @OneToMany(mappedBy = "cardapio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CardapioComida> cardapioComidaList = new ArrayList<>();
-
 }

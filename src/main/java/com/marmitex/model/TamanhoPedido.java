@@ -29,4 +29,6 @@ public class TamanhoPedido {
     @Column(name = "QUANTIDADE")
     private Integer quantidade;
 
+    @Column(name = "VALOR_TOTAL")
+    private Double valorTotal;
 }

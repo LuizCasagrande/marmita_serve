@@ -54,6 +54,9 @@ public class Pedido {
     @Column(name = "DIA_SEMANA")
     private DiaSemana diaSemana;
 
+    @Column(name = "VALOR_TOTAL")
+    private Double valorTotal;
+
     @PrePersist
     public void preSave() {
         var dataAtual = LocalDate.now();
@@ -68,7 +71,5 @@ public class Pedido {
         Cliente cliente = (Cliente) authentication.getPrincipal();
         this.setCliente(cliente);
     }
-
-
 }
 
