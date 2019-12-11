@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @Service
@@ -22,7 +23,22 @@ public class CardapioServiceImpl extends CrudServiceImpl<Cardapio, Long> impleme
     }
 
     @Override
+    public void preSave(Cardapio entity) {
+        if (entity.isInativo()){
+            cardapioData.updateInativoByDiaSemana(entity.getDiaSemana());
+        }
+    }
+
+    @Override
+    public Cardapio save(Cardapio entity) {
+        preSave(entity);
+        return super.save(entity);
+    }
+
+    @Override
     public List<Cardapio> findByInativoFalse() {
         return cardapioData.findByInativoFalse();
     }
+
+
 }

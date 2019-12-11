@@ -47,4 +47,6 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido, Long> implements 
     public void setCancelado(Integer id) {
         pedidoData.setCancelado(id);
     }
+
+
 }

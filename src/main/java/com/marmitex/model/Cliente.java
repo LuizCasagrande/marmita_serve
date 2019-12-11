@@ -25,7 +25,7 @@ public class Cliente implements UserDetails {
     private String nome;
 
     @Column(name = "ADMIN", nullable = false)
-    private boolean admin;
+    private boolean admin = false;
 
     @Column(name = "CPF", nullable = false, length = 11)
     private String cpf;

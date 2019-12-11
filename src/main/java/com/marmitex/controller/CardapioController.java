@@ -29,4 +29,5 @@ public class CardapioController extends CrudRestController<Cardapio, Long> {
     public List<Cardapio> ingredienteListAtivos(){
         return cardapioService.findByInativoFalse();
     }
+
 }
