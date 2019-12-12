@@ -28,7 +28,17 @@ public class RelatoriosController {
     public List<RelatorioPedidoCliente> relatorioPedidoCliente() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Cliente cliente = (Cliente) authentication.getPrincipal();
+
         return relatorioNativeQuery.relatorioPedidoCliente(cliente.getId());
+    }
+
+    @GetMapping("total-a-pagar")
+    public Number relatorioPedidoClienteTotalAPagar() {
+        return relatorioNativeQuery.relatorioPedidoClienteTotalAPagar();
+    }
+    @GetMapping("total-pago")
+    public Number relatorioPedidoClienteTotalPago() {
+        return relatorioNativeQuery.relatorioPedidoClienteTotalPago();
     }
 
 

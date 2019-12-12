@@ -1,4 +1,4 @@
-SELECT C.ID, P.ID as id, P.DATA as dataDoPedido, P.STATUS as status, P.PAGO as pago, T.PESO_MARMITA
+SELECT P.ID as id, P.DATA as dataDoPedido, P.STATUS as status, P.PAGO as pago, T.PESO_MARMITA
 as peso, P.VALOR_TOTAL as valorTotal, SUM(PT.QUANTIDADE) as quantidade
 FROM PEDIDO P
 INNER JOIN PEDIDO_TAMANHO AS PT ON PT.ID_PEDIDO = P.ID

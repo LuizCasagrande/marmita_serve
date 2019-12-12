@@ -14,6 +14,8 @@ public interface RelatorioNativeQuery extends NativeQuery {
 
     List<RelatorioPedidoCliente> relatorioPedidoCliente(@NativeQueryParam("id") Long id);
 
-    Number TotalAPagar();
+    Number relatorioPedidoClienteTotalAPagar();
+
+    Number relatorioPedidoClienteTotalPago();
 
 }
