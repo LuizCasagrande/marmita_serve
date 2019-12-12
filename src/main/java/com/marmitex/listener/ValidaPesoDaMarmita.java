@@ -14,9 +14,7 @@ public class ValidaPesoDaMarmita implements ApplicationListener<TamanhoPreSave> 
     public void onApplicationEvent(TamanhoPreSave tamanhoPreSave) {
         var tamanhoPedido = tamanhoPreSave.getTamanho().getPeso();
         if (tamanhoPedido >= PESO_MAXIMO) {
-            throw new RuntimeException("O peso " +
-                    "não pode  exeder 5000g");
+            throw new RuntimeException("O peso não pode  exeder 5 Kg");
         }
-
     }
-    }
+}
