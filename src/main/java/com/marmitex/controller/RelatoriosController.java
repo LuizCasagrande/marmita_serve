@@ -1,9 +1,12 @@
 package com.marmitex.controller;
 
 import com.marmitex.data.RelatorioNativeQuery;
+import com.marmitex.model.Cliente;
 import com.marmitex.model.RelatorioPedidoCliente;
 import com.marmitex.model.RelatorioPedidoEmpresa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +26,9 @@ public class RelatoriosController {
 
     @GetMapping("pedido-cliente")
     public List<RelatorioPedidoCliente> relatorioPedidoCliente() {
-        return relatorioNativeQuery.relatorioPedidoCliente();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Cliente cliente = (Cliente) authentication.getPrincipal();
+        return relatorioNativeQuery.relatorioPedidoCliente(cliente.getId());
     }
 
 

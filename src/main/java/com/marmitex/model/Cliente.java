@@ -29,7 +29,7 @@ public class Cliente implements UserDetails {
     @Column(name = "ADMIN", nullable = false)
     private boolean admin = false;
 
-    @CPF
+    @CPF(message = "Por favor, digite um CPF válido! ")
     @Column(name = "CPF", nullable = false, length = 11)
     private String cpf;
 

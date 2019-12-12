@@ -3,6 +3,7 @@ package com.marmitex.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -46,8 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable()
                 // dont authenticate this particular request
-                .authorizeRequests().antMatchers("/authenticate").permitAll().
-                and().authorizeRequests().antMatchers("/autoridade").authenticated().
+                .authorizeRequests().antMatchers(HttpMethod.POST,"/cliente").permitAll().and()
+                .authorizeRequests().antMatchers("/autoridade").permitAll().and().
+                authorizeRequests().antMatchers("/authenticate").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().
                 // make sure we use stateless session; session won't be used to
