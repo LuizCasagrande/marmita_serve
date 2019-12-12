@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class RetornaAutoridade {
 
     @GetMapping("autoridade")
-    private boolean retornaAutoridade(){
+    private boolean retornaAutoridade() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Cliente user = (Cliente) authentication.getPrincipal();]
+        Cliente user = (Cliente) authentication.getPrincipal();
         return user.isAdmin();
     }
 }
