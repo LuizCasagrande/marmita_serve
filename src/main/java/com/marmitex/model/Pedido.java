@@ -43,7 +43,7 @@ public class Pedido {
     @OneToOne
     @JoinColumn(name = "ID", nullable = false)
     private Cardapio cardapio;
-
+;
     @Column(name = "STATUS")
     private boolean status = false;
 
