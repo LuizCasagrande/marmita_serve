@@ -13,6 +13,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PedidoServiceImpl extends CrudServiceImpl<Pedido, Long> implements PedidoService {
     @Autowired private  ApplicationEventPublisher applicationEventPublisher;
@@ -31,6 +33,16 @@ public class PedidoServiceImpl extends CrudServiceImpl<Pedido, Long> implements 
     public Pedido save(Pedido entity) {
         preSave(entity);
         return getRepository().save(entity);
+    }
+
+    @Override
+    public List<Pedido> findAll() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Cliente user = (Cliente) authentication.getPrincipal();
+        if(user.isAdmin())
+            return super.findAll();
+        else
+            return pedidoData.findPedidoByCliente_Id(user.getId());
     }
 
     @Override

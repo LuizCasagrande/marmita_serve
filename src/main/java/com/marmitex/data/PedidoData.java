@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface PedidoData extends JpaRepository<Pedido, Long> {
 
     @Transactional
@@ -18,4 +20,6 @@ public interface PedidoData extends JpaRepository<Pedido, Long> {
     @Modifying
     @Query("UPDATE Pedido SET status = true WHERE id = :id")
     void setCancelado(@Param("id") Long id);
+
+    List<Pedido> findPedidoByCliente_Id(Long id);
 }
