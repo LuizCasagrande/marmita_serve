@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/autoridade").permitAll().and()
                 .authorizeRequests().antMatchers("/authenticate").permitAll().
                 // all other requests need to be authenticated
-                        antMatchers("/pedido", "/cardapio", "/tamanho").
+                        antMatchers("/pedido/**", "/cardapio", "/tamanho").
                         access("hasAuthority('CLIENTE') or hasAuthority('ADMIN')").and().
 
                 // make sure we use stateless session; session won't be used to
