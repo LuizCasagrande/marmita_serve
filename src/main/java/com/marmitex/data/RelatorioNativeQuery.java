@@ -6,16 +6,24 @@ import io.github.gasparbarancelli.NativeQuery;
 import io.github.gasparbarancelli.NativeQueryParam;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface RelatorioNativeQuery extends NativeQuery {
 
+
     List<RelatorioPedidoEmpresa> relatorioPedidoEmpresa();
 
-    List<RelatorioPedidoCliente> relatorioPedidoCliente(@NativeQueryParam("id") Long id);
+    List<RelatorioPedidoCliente> relatorioPedidoCliente(@NativeQueryParam("id") Long id,
+                                                        @NativeQueryParam("dataInicial") LocalDate dataInicial,
+                                                        @NativeQueryParam("dataFinal") LocalDate dataFinal);
 
-    Number relatorioPedidoClienteTotalAPagar();
+    Number relatorioPedidoClienteTotalAPagar(@NativeQueryParam("id") Long id,
+                                             @NativeQueryParam("dataInicial") LocalDate dataInicial,
+                                             @NativeQueryParam("dataFinal") LocalDate dataFinal);
 
-    Number relatorioPedidoClienteTotalPago();
+    Number relatorioPedidoClienteTotalPago(@NativeQueryParam("id") Long id,
+                                           @NativeQueryParam("dataInicial") LocalDate dataInicial,
+                                           @NativeQueryParam("dataFinal") LocalDate dataFinal);
 
 }
