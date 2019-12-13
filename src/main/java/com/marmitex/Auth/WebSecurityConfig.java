@@ -47,11 +47,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable()
                 // dont authenticate this particular request
+                .authorizeRequests().antMatchers("/cardapio/ativos").permitAll().and()
                 .authorizeRequests().antMatchers(HttpMethod.POST,"/cliente").permitAll().and()
                 .authorizeRequests().antMatchers("/autoridade").permitAll().and()
                 .authorizeRequests().antMatchers("/authenticate").permitAll().
                 // all other requests need to be authenticated
-                        antMatchers("/pedido/**", "/cardapio", "/tamanho").
+                        antMatchers("/pedido/**", "/cardapio", "/tamanho", "/relatorio/**").
                         access("hasAuthority('CLIENTE') or hasAuthority('ADMIN')").and().
 
                 // make sure we use stateless session; session won't be used to
