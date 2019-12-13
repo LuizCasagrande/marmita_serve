@@ -18,6 +18,4 @@ public class RelatorioPedidoEmpresa {
 
     private Number valorTotalPorPeso;
 
-    private Number totalMarmita;
-
 }

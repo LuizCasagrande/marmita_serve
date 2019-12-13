@@ -24,8 +24,8 @@ public class RelatoriosController {
 
 
     @GetMapping("pedido-empresa")
-    public List<RelatorioPedidoEmpresa> relatorioPedidoEmpresa(@RequestParam("diaSemana") DiaSemana diaSemana) {
-        return relatorioNativeQuery.relatorioPedidoEmpresa();
+    public List<RelatorioPedidoEmpresa> relatorioPedidoEmpresa(@RequestParam("diaSemana") String diaSemana) {
+        return relatorioNativeQuery.relatorioPedidoEmpresa(diaSemana);
     }
 
     @GetMapping("pedido-cliente")
